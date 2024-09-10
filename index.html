@@ -1,0 +1,384 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ShadCN-like Dashboard</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
+    <link href='https://fonts.googleapis.com/css?family=Urbanist' rel='stylesheet'>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/pikaday/css/pikaday.css">
+    <script src="https://cdn.jsdelivr.net/npm/pikaday/pikaday.js"></script>
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.13.4/css/jquery.dataTables.min.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.datatables.net/1.13.4/js/jquery.dataTables.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+
+</head>
+<body>
+    <script src="scripts.js"></script>
+    <div class="dashboard">
+        <aside class="sidebar">
+            <div class="main--menu">
+                <div class="left--menu">
+                    <img src="./assets/img/logo.png" alt="logo">
+                    <img src="./assets/img/Arrow.png" alt="arrow--logo">
+                    <img src="./assets/img/MenumizHR.png" alt="hr--logo">
+                </div>
+                <div class="right--menu">
+                        <div class="search-container">
+                                <span class="search-icon material-symbols-outlined">search</span>
+                                <input type="search" id="searchInput" class="search--input" placeholder="Enter any keyword..." >
+                        </div>
+                        <div class="right--icons">
+                                <img src="./assets/img/rightHug.png" alt="profile--logo">
+                                <img src="./assets/img/Notifications.png" alt="notification--logo"  id="notification-icon">
+                                <img src="./assets/img/Avatar.png" alt="avatar--logo">
+                        </div>
+                </div>
+
+                
+        </div>
+            <nav class="nav--bar">
+                <ul>
+                    <li class=''>
+                        <img src="./assets/img/sidebar/Dashboard.png" alt="dashboard--logo">
+                        <a href="#" id="overview">Dashboard</a></li>
+                    <li>
+                        <img src="./assets/img/sidebar/Calender.png" alt="calander--logo">
+                        <a href="#" id="analytics">Calender</a></li>
+                    <li>
+                        <img src="./assets/img/sidebar/Recruitment.png" alt="recruitment--logo">
+                        <a href="#" id="settings">Recruitment</a></li>
+                    <li>
+                        <img src="./assets/img/sidebar/Employees.png" alt="employee--logo">
+                        <a href="#" id="settings">Employees</a></li>
+                    <li>
+                        <img src="./assets/img/sidebar/Leave.png" alt="leave--logo">
+                        <a href="#" id="settings">leave</a></li>
+                    <li>
+                        <img src="./assets/img/sidebar/Organisation.png" alt="attendance--logo">
+                        <a href="#" id="settings">Organisation</a></li>
+                    <li>
+                        <img src="./assets/img/sidebar/Billings.png" alt="billings--logo"> 
+                        <a href="#" id="settings">Billings</a></li>
+                    <li>
+                        <img src="./assets/img/sidebar/Engagement.png" alt="engagement--logo">
+                        <a href="#" id="settings">Engagement</a></li>
+                    <li>
+                        <img src="./assets/img/sidebar/Development.png" alt="development--logo">
+                        <a href="#" id="settings">Development</a></li>
+                    <li>
+                        <img src="./assets/img/sidebar/Performance.png" alt="performance--logo">
+                        <a href="#" id="settings">Performance</a></li>
+                    <li>
+                        <img src="./assets/img/sidebar/Reports.png" alt="reports--logo">
+                        <a href="#" id="settings">Reports</a></li>
+                </ul>
+            </nav>
+        </aside>
+        <main class="content">
+            <div class="first--content">
+            <section class="main--content">
+                <div class="top--dashboard">
+                    <span class="active--link">Leave Management</span>
+                    <span>Leave Requests</span>
+                    <span>Leave Types</span>
+                    <span>Leave Calender</span>
+                    <span>Leave Report</span>
+                    <span>Leave Approver</span>
+                    <img src="./assets/img/rightHug.png" alt="rightHug--logo">
+                </div>
+                <div class="dashboard--tile">
+                    <h1 class="dashboard--header">Dashboard</h1>
+                
+                    <div class="top--tile">
+                        <div class="heatmap--tile">
+                        
+                            <div class="dropdown--row">
+                            <h2 class="heatmap--title">HEATMAP</h2>
+                            
+                                <div class="dropdown--right">
+                                    <div class="leave--type--tile">
+                                        
+                                        <select class="dropdown" id="leave-type" name="leave-type">
+                                            <option value="sickday">SICK DAY</option>
+                                            <option value="holiday">HOLIDAY</option>
+                                            <option value="family-emergency">Family Emergency</option>
+                                        </select>
+                                    </div>
+                                    <div class="leave-type--tile">
+                                        <label for="leave-date">Select Date:</label>
+                                        <input type="text" id="leave-date" name="leave-date" readonly></div>
+                                </div>
+                                
+                                    </div>
+                                    <div class="days--tab">
+                                        <p>Mon</p>
+                                        <p>Tue</p>
+                                        <p>Wed</p>
+                                        <p>Thu</p>
+                                        <p>Fri</p>
+                                        <p>Sat</p>
+                                        <p>Sun</p>
+                                    </div>
+                                    <div class="container--new">
+                                        <div class="leave-item">
+                                            <div class="circle sick-leave">50%</div>
+                                            <div class="leave-type">Sick Leave</div>
+                                        </div>
+                                        <div class="leave-item">
+                                            <div class="circle annual-leave">30%</div>
+                                            <div class="leave-type">Annual Leave</div>
+                                        </div>
+                                        <div class="leave-item">
+                                            <div class="circle emergency-leave">20%</div>
+                                            <div class="leave-type">Emergency Leave</div>
+                                        </div>
+                                    </div>
+                                    <div>
+                                        
+                                    </div>
+                                </div>
+                                    
+                                    <div class="days--tile">
+                                        
+                                        <div class="dropdown--row new">
+                                            <h2 class="heatmap--title">Most Days Away</h2>
+                                            
+                                                <div class="dropdown--right">
+                                                    
+                                                    <div class="leave-type--tile">
+                                                        <label for="leave-date2">Select Date:</label>
+                                                        <input type="text" id="leave-date2" name="leave-date2" readonly></div>
+                                                </div>
+                                               
+                                                
+                                                    </div>
+                                                    <div class="days--container">
+                                                    <div class="days--data">
+                                                        <div class="days--row">
+                                                        <img src="./assets/img/mark.svg" alt="arrow--logo">
+                                                        <p>Mark Jacobs</p>
+                                                    </div>
+                                                    <div>
+                                                        <p class="days--number">5.0 day(s)</p>
+                                                    </div>
+                                                    </div>
+                                                    <div class="days--data">
+                                                        <div class="days--row">
+                                                        <img src="./assets/img/charlie.svg" alt="arrow--logo">
+                                                        <p>Charlie Kristen</p>
+                                                    </div>
+                                                    <div>
+                                                        <p class="days--number">3.5day(s)</p>
+                                                    </div>
+                                                    </div>
+                                                    <div class="days--data">
+                                                        <div class="days--row">
+                                                        <img src="./assets/img/fariha.svg" alt="arrow--logo">
+                                                        <p>Nur Fariha binti Maslan</p>
+                                                    </div>
+                                                    <div>
+                                                        <p class="days--number">10 day(s)</p>
+                                                    </div>
+                                                    </div>
+                                                    <div class="days--data">
+                                                        <div class="days--row">
+                                                        <img src="./assets/img/Nishant.svg" alt="arrow--logo">
+                                                        <p>Nishant Talwar</p>
+                                                    </div>
+                                                    <div>
+                                                        <p class="days--number">10 day(s)</p>
+                                                    </div>
+                                                    </div>
+                                                </div>
+                                    </div>
+                                </div>
+                                <div class="view--type">
+                                <h1 class="dashboard--header">Leave Requests</h1>
+                                <div class="view--group">
+                                    <p class="list--view">List View</p>
+                                    <p class="month--view">Month View</p>
+                                </div>
+                                </div>
+                                <div id="monthViewContent" class="view-content" style="display: none;">
+                                    <div class="container">
+                                        <div class="top-bar">
+                                            <div class="date-nav">
+                                                <i class="fas fa-chevron-left" id="prevMonth"></i>
+                                                <input type="text" id="datePicker" readonly>
+                                                <i class="fas fa-chevron-right" id="nextMonth"></i>
+                                            </div>
+                                            
+                                            <div class="icons">
+                                                <i class="far fa-square"></i>
+                                                <i class="fas fa-print"></i>
+                                                <i class="far fa-lightbulb"></i>
+                                                <i class="fas fa-eye"></i>
+                                            </div>
+                                        </div>
+                                        <div class="calendar">
+                                            <div class="day">9</div>
+                                            <div class="day active">10</div>
+                                            <div class="day">11</div>
+                                            <div class="day">12</div>
+                                            <div class="day">13</div>
+                                            <div class="day">14</div>
+                                            <div class="day">15</div>
+                                        </div>
+                                        <div class="teams">
+                                            <div class="team">
+                                                <div class="team-name">
+                                                    <span>C-Suite</span>
+                                                    <div class="toggle"></div>
+                                                </div>
+                                            </div>
+                                            <div class="team">
+                                                <div class="team-name">
+                                                    <span>R&amp;D</span>
+                                                    <div class="toggle"></div>
+                                                </div>
+                                            </div>
+                                            <div class="team">
+                                                <div class="team-name">
+                                                    <span>Creative Team</span>
+                                                    <div class="toggle"></div>
+                                                </div>
+                                                <div class="members">
+                                                    <div class="member">
+                                                        <img alt="Profile picture of Graeme" src="https://replicate.delivery/yhqm/yt4eVUenP6tRrE2Ue0RUn98E3ThzRYE56aKbjUYuRPprlGymA/out-0.png"/>
+                                                    </div>
+                                                    <div class="task-container"></div>
+                                                    <div class="member">
+                                                        <img alt="Profile picture of Steven" src="https://replicate.delivery/yhqm/Y8PzQ1k1rt7rJRYifKtY0fcCulv6Ix9gQfLzv1QKriUxlGymA/out-0.png"/>
+                                                    </div>
+                                                    <div class="task-container">
+                                                        <div class="task">Review Keynote Deck</div>
+                                                    </div>
+                                                    <div class="member">
+                                                        <img alt="Profile picture of Ashley" src="https://replicate.delivery/yhqm/CPkHzYnetQ0zCSXIhnoGifHzGaInDk7DzixMI8z5bCNOVDZTA/out-0.png"/>
+                                                    </div>
+                                                    <div class="task-container">
+                                                        <div class="task">Review Keynote Deck</div>
+                                                    </div>
+                                                    <div class="member">
+                                                        <img alt="Profile picture of Mark" src="https://replicate.delivery/yhqm/WgxWkGNegDxyQKrPs4SnXCOqSqUMF0hpIU3plq2eMuF0SDZTA/out-0.png"/>
+                                                    </div>
+                                                    <div class="task-container"></div>
+                                                    <div class="member">
+                                                        <img alt="Profile picture of Charlie" src="https://replicate.delivery/yhqm/WAC8xLRUh8KwPR2O4ImTStgEzQq5NgdV8fD227C5Pu9aphsJA/out-0.png"/>
+                                                    </div>
+                                                    <div class="task-container"></div>
+                                                </div>
+                                            </div>
+                                            <div class="team">
+                                                <div class="team-name">
+                                                    <span>Development Team</span>
+                                                    <div class="toggle"></div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div  id="listViewContent" class="table--border">
+                                    <div class="top--table--tab">
+                                        <div class="requests--tab">
+                                            <p>All</p>
+                                            <p>Approved</p>
+                                            <p>Rejected</p>
+                                        </div>
+                                        <div class="calendar-container">
+                                            <i class="fas fa-chevron-left"></i>
+                                            <span class="month">March</span>
+                                            <span class="year">2023</span>
+                                            <i class="fas fa-calendar-alt calendar-icon"></i>
+                                            <i class="fas fa-caret-down"></i>
+                                            <i class="fas fa-chevron-right"></i>
+                                        </div>
+                                    </div>
+                                   
+                                    <div class="table-container">
+                                        <table>
+                                            <thead>
+                                              <!-- Your table header here -->
+                                            </thead>
+                                            <tbody class="table--body">
+                                              <!-- The script will populate this -->
+                                            </tbody>
+                                          </table>
+                                       </div>
+                                </div>
+                            </div>
+                        </section>
+                        <div class="card hdden">
+                            <div class="card-header">
+                                <div class="card-title">Leave Details</div>
+                                <button class="close-btn">×</button>
+                            </div>
+                            <div class="user-info">
+                                <img src="./assets/img/fariha.svg" alt="Profile picture of Nur Farha binti Manson" class="user-avatar">
+                                <div>
+                                    <div class="user-name">Nur Farha binti Manson</div>
+                                    <div class="leave-type">Hospital Leave</div>
+                                </div>
+                            </div>
+                            <div class="leave-details">
+                                <div class="detail-row">
+                                    <span class="detail-label">TOTAL HOURS:</span>
+                                    <span class="detail-value">16</span>
+                                </div>
+                                <div class="detail-row">
+                                    <span class="detail-label">START DATE:</span>
+                                    <span class="detail-value">21 Apr 2023</span>
+                                </div>
+                                <div class="detail-row">
+                                    <span class="detail-label">DAY(S):</span>
+                                    <span class="detail-value">Friday</span>
+                                </div>
+                                <div class="detail-row">
+                                    <span class="detail-label">HOURS:</span>
+                                    <span class="detail-value">8</span>
+                                </div>
+                            </div>
+                            <button class="expand-btn">
+                                EXPAND <i class="fas fa-chevron-down"></i>
+                            </button>
+                            <div class="approval-level">
+                                <div class="section-title">Approval Level</div>
+                                <div class="approver">
+                                    <img src="./assets/img/simon2.png" alt="Profile picture of Simon Minter" class="approver-avatar" >
+                                    <div class="approver-info">
+                                        <div class="approver-name">Simon Minter</div>
+                                        <div class="approver-status">Human Resources • Pending Approval</div>
+                                    </div>
+                                </div>
+                                <div class="approver">
+                                    <img src="./assets/img/queenie.png" alt="Profile picture of Qwanish Tech" class="approver-avatar" >
+                                    <div class="approver-info">
+                                        <div class="approver-name">Qwanish Tech</div>
+                                        <div class="approver-status">Head of UK Design • Pending Approval</div>
+                                    </div>
+                                </div>
+                                <div class="approver">
+                                    <img src="./assets/img/charlie2.png" alt="Profile picture of Charlie Kristen" class="approver-avatar">
+                                    <div class="approver-info">
+                                        <div class="approver-name">Charlie Kristen</div>
+                                        <div class="approver-status">Senior UX Designer • Pending Approval</div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="comment-section">
+                                <div class="section-title">Comment</div>
+                                <div class="action-buttons">
+                                    <button class="action-btn reject-btn">REJECT</button>
+                                    <button class="action-btn approve-btn">APPROVE</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    </main>
+                </div>
+                <script src="scripts.js"></script>
+            </body>
+            </html>
